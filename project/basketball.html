@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e3e3e3;
+            text-align: center;
+        }
+
+        header {
+            padding-top: 20px;
+            position: relative;
+        }
+
+        #menu-toggle {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            z-index: 10;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            background-color: #0055CC;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            display: none;
+            position: absolute;
+            left: 0;
+        }
+
+        nav ul.open {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        nav ul li {
+            padding: 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 20px;
+        }
+
+        .image-container {
+            position: relative;
+            width: 90%;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        .popup-image {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.5s ease-in-out;
+            cursor: pointer;
+        }
+
+        .popup-image.active {
+            transform: scale(1.2);
+        }
+
+        .text-container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            background: rgba(249, 249, 249, 0.95);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+            font-size: 18px;
+            line-height: 1.6;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #0055CC;
+            color: white;
+        }
+
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button id="menu-toggle">&#9776;</button>
+        <nav id="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+        <h1>Basketball: The Fast-Paced Game</h1>
+        <p>Explore the history, legends, and culture of basketball</p>
+    </header>
+    
+    <main>
+        <div class="image-container">
+            <img class="popup-image" src="https://springfield.edu/sites/default/files/styles/feature_smaller/public/2017-02/Early_outdoor_basketball_game.jpg?h=78f3ca2a&itok=_ZkZfxBj" alt="Basketball">
+        </div>
+        <div class="text-container">
+            <h2>The Origins of Basketball</h2>
+            <p>Basketball was invented in 1891 by Dr. James Naismith, a Canadian physical education instructor. He developed the game to keep students active indoors during the winter. Using a soccer ball and two peach baskets, the first basketball game was played with just 13 simple rules.</p>
+        </div>
+
+        <div class="image-container">
+            <img class="popup-image" src="https://images.fastcompany.com/image/upload/f_webp,c_fit,w_1920,q_auto/wp-cms-2/2024/04/p-1-91109463-the-rise-of-the-nba-gig-worker.jpg" alt="NBA Logo">
+        </div>
+        <div class="text-container">
+            <h2>The Rise of the NBA</h2>
+            <p>The National Basketball Association (NBA) was founded in 1946 and quickly became the top professional basketball league in the world. The NBA has produced legendary players such as Michael Jordan, Magic Johnson, LeBron James, and Kobe Bryant, each contributing to the sport’s global popularity.</p>
+        </div>
+
+        <div class="image-container">
+            <img class="popup-image" src="https://cdn.britannica.com/12/261212-050-9E757432/basketball-players-stephen-curry-of-united-states-and-guerschon-yabusele-of-france-during-mens-basketball-gold-medal-game-at-paris-summer-olympics-2024.jpg" alt="Michael Jordan">
+        </div>
+        <div class="text-container">
+            <h2>Basketball Legends</h2>
+            <p>From Bill Russell's dominance in the 1960s to Stephen Curry's revolution of the three-point shot, basketball has seen incredible athletes shape the game. Michael Jordan, often considered the greatest of all time, won six championships with the Chicago Bulls and elevated basketball to international fame.</p>
+        </div>
+
+        <div class="image-container">
+            <img class="popup-image" src="https://static.owayo-cdn.com/newhp/img/magazin/basketballstrategy/basketball-strategy-tactics-670px.jpg">
+        </div>
+        <div class="text-container">
+            <h2>Strategies & Play Styles</h2>
+            <p>Basketball has evolved over the years with new tactics and play styles. The fast-paced transition offense, the dominance of big men in the post, and the recent explosion of three-point shooting have all shaped how teams approach the game. Coaching strategies and player adaptability continue to redefine basketball.</p>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Created by Maheen | <a href="https://github.com/m4heen1/Mobilepart1">GitHub Repository</a></p>
+    </footer>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var nav = document.getElementById('navbar').querySelector('ul');
+            nav.classList.toggle('open');
+        });
+
+        // Add click effect to images
+        document.querySelectorAll('.popup-image').forEach(img => {
+            img.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

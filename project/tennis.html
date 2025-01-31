@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tennis</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e3e3e3;
+            text-align: center;
+        }
+
+        header {
+            padding-top: 20px;
+            position: relative;
+        }
+
+        #menu-toggle {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            z-index: 10;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            background-color: #0055CC;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            display: none;
+            position: absolute;
+            left: 0;
+        }
+
+        nav ul.open {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        nav ul li {
+            padding: 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 20px;
+        }
+
+        .image-container {
+            position: relative;
+            width: 90%;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        .fade-image {
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .fade-image.fade {
+            opacity: 0;
+        }
+
+        .text-container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            background: rgba(249, 249, 249, 0.95);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+            font-size: 18px;
+            line-height: 1.6;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #0055CC;
+            color: white;
+        }
+
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button id="menu-toggle">&#9776;</button>
+        <nav id="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+        <h1>Tennis: The Game of Elegance</h1>
+        <p>Discover the history, championships, and legends of tennis</p>
+    </header>
+    
+    <main>
+        <div class="image-container">
+            <img class="fade-image" src="https://cdn.britannica.com/04/46704-004-0E40887D/Don-Budge-1938.jpg">
+        </div>
+        <div class="text-container">
+            <h2>Origins of Tennis</h2>
+            <p>Tennis traces its roots back to 12th-century France, where it was played with bare hands. By the 16th century, rackets were introduced, and the game evolved into what is now known as "real tennis." The modern version of lawn tennis was standardized in 1874 by Major Walter Clopton Wingfield.</p>
+        </div>
+
+        <div class="image-container">
+            <img class="fade-image" src="https://grand-slam.s3.amazonaws.com/images/pages_hero_image_46355bb6fd248935179df45199a9bcfe.jpg" alt="Wimbledon">
+        </div>
+        <div class="text-container">
+            <h2>Grand Slam Tournaments</h2>
+            <p>The four major Grand Slam tournaments—Wimbledon, the US Open, the French Open, and the Australian Open—are the most prestigious events in tennis. Each tournament has unique playing conditions, from the grass courts of Wimbledon to the clay courts of Roland Garros.</p>
+        </div>
+
+        <div class="image-container">
+            <img class="fade-image" src="https://cdn.britannica.com/78/249578-050-01D46C9B/Novak-Djokovic-Serbia-US-Open-2023.jpg" alt="Roger Federer">
+        </div>
+        <div class="text-container">
+            <h2>Legends of the Sport</h2>
+            <p>Some of the greatest tennis players include Roger Federer, Rafael Nadal, and Novak Djokovic, who have dominated men's tennis in the 21st century. On the women's side, Serena Williams, Steffi Graf, and Martina Navratilova have set records that still stand today.</p>
+        </div>
+
+        <div class="image-container">
+            <img class="fade-image" src="https://images.squarespace-cdn.com/content/v1/6155ca9a84146d4f4bbe487b/1634892851820-PLWKHVJZETRTGJMI3YV8/chino-rocha-2FKTyJqfWX8-unsplash.jpg">
+        </div>
+        <div class="text-container">
+            <h2>Strategies and Playing Styles</h2>
+            <p>Different players have distinct playing styles, from powerful baseline hitters to serve-and-volley specialists. Tennis requires a blend of speed, precision, and mental toughness. Coaches and analysts study tactics such as deep defensive play, aggressive net approaches, and strong second serves.</p>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Created by Maheen | <a href="https://github.com/m4heen1/Mobilepart1">GitHub Repository</a></p>
+    </footer>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var nav = document.getElementById('navbar').querySelector('ul');
+            nav.classList.toggle('open');
+        });
+
+        // Add fade effect to images
+        document.querySelectorAll('.fade-image').forEach(img => {
+            img.addEventListener('click', function() {
+                this.classList.add('fade'); 
+                setTimeout(() => {
+                    this.classList.remove('fade'); 
+                }, 500); 
+            });
+        });
+    </script>
+</body>
+</html>

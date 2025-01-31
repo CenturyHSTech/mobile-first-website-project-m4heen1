@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e3e3e3;
+            text-align: center;
+        }
+
+        header {
+            padding-top: 20px;
+            position: relative;
+        }
+
+        #menu-toggle {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            z-index: 10;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            background-color: #0055CC;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            display: none;
+            position: absolute;
+            left: 0;
+        }
+
+        nav ul.open {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        nav ul li {
+            padding: 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 20px;
+        }
+
+        .image-container {
+            position: relative;
+            width: 90%;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        .popup-image {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.5s ease-in-out;
+            cursor: pointer;
+        }
+
+        .popup-image.active {
+            transform: scale(1.2);
+        }
+
+        .text-container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            background: rgba(249, 249, 249, 0.95);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+            font-size: 18px;
+            line-height: 1.6;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #0055CC;
+            color: white;
+        }
+
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button id="menu-toggle">&#9776;</button>
+        <nav id="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+        <h1>Soccer: The Beautiful Game</h1>
+        <p>Discover the history, legends, and latest updates in soccer</p>
+    </header>
+    
+    <main>
+        <div class="image-container">
+            <img class="popup-image" src="https://www.mlsfootball.com/wp-content/uploads/2023/03/history-of-succer-in-usa.jpg" alt="Soccer Ball">
+        </div>
+        <div class="text-container">
+            <h2>History of Soccer</h2>
+            <p>Soccer, also known as football, is the world's most popular sport. It originated in England in the 19th century but traces its roots back to ancient China, Greece, and Rome, where similar games were played. The modern rules of soccer were standardized by the Football Association in 1863.</p>
+        </div>
+
+        <div class="image-container">
+            <img class="popup-image" src="https://theburlingameb.org/wp-content/uploads/2023/01/World_Cup_Opening_Ceremony_in_Doha_Qatar_52515886760.jpg" alt="FIFA World Cup">
+        </div>
+        <div class="text-container">
+            <h2>The FIFA World Cup</h2>
+            <p>The FIFA World Cup is the most prestigious soccer tournament, held every four years. The first tournament was held in 1930, and it has since become the most-watched sporting event in the world. Countries from all continents compete for the ultimate prize in soccer.</p>
+        </div>
+
+        <div class="image-container">
+            <img class="popup-image" src="https://cdn.britannica.com/35/238335-050-2CB2EB8A/Lionel-Messi-Argentina-Netherlands-World-Cup-Qatar-2022.jpg" alt="Lionel Messi">
+        </div>
+        <div class="text-container">
+            <h2>Legendary Players</h2>
+            <p>Soccer has produced some of the greatest athletes in history. Players like Pelé, Diego Maradona, and Lionel Messi have defined generations with their incredible skills and unforgettable moments. From stunning goals to breathtaking dribbles, these legends have left a lasting impact on the sport.</p>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Created by Maheen | <a href="https://github.com/m4heen1/Mobilepart1">GitHub Repository</a></p>
+    </footer>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var nav = document.getElementById('navbar').querySelector('ul');
+            nav.classList.toggle('open');
+        });
+
+        // Add click effect to images
+        document.querySelectorAll('.popup-image').forEach(img => {
+            img.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports News</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e3e3e3;
+            text-align: center;
+        }
+
+        header {
+            padding-top: 20px;
+            position: relative;
+        }
+
+        #menu-toggle {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            z-index: 10;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            background-color: #0055CC;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            display: none;
+            position: absolute;
+            left: 0;
+        }
+
+        nav ul.open {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        nav ul li {
+            padding: 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 20px;
+        }
+
+        .slideshow-container {
+            width: 90%;
+            max-width: 500px;
+            overflow: hidden;
+            position: relative;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        .slideshow-wrapper {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            max-width: 500px;
+        }
+
+        .text-container {
+            width: 90%;
+            max-width: 500px;
+            margin: 20px auto;
+            background: rgba(249, 249, 249, 0.95);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px; /* Set a fixed height */
+            overflow: hidden;
+        }
+
+        .text-wrapper {
+            display: flex;
+            transition: transform 1s ease-in-out;
+            width: 100%;
+        }
+
+        .text-slide {
+            min-width: 100%;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 10px;
+            color: white;
+            font-size: 18px;
+            transition: 0.3s;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.5);
+            transform: translateY(-50%);
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev:hover, .next:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #0055CC;
+            color: white;
+        }
+
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button id="menu-toggle">&#9776;</button>
+        <nav id="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+        <h1>Latest Sports News</h1>
+        <p>Stay informed with the latest updates in sports</p>
+    </header>
+    
+    <main>
+        <div class="slideshow-container">
+            <div class="slideshow-wrapper">
+                <img class="slide" src="https://images.pond5.com/sports-news-broadcast-graphics-title-009938418_prevstill.jpeg" alt="Sports News 1">
+                <img class="slide" src="https://images.sbs.com.au/dims4/default/4e5c128/2147483647/strip/true/crop/4312x2426+0+224/resize/1280x720!/quality/90/?url=http%3A%2F%2Fsbs-au-brightspot.s3.amazonaws.com%2F20%2F46%2Fb2fe6bef49aeaab5f107aaa70cfb%2Fgettyimages-1451091973.jpg" alt="NBA News">
+                <img class="slide" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2185059503.jpg?c=original" alt="FIFA World Cup">
+            </div>
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+
+        <div class="text-container">
+            <div class="text-wrapper">
+                <div class="text-slide">Breaking: Team USA wins the gold medal in basketball!</div>
+                <div class="text-slide">World Cup 2026: Host countries finalize stadiums.</div>
+                <div class="text-slide">Winner Jake Paul!</div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Created by Maheen | <a href="https://github.com/m4heen1/Mobilepart1">GitHub Repository</a></p>
+    </footer>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var nav = document.getElementById('navbar').querySelector('ul');
+            nav.classList.toggle('open');
+        });
+
+        let slideIndex = 0;
+        function updateSlideshow() {
+            let slideWrapper = document.querySelector(".slideshow-wrapper");
+            let textWrapper = document.querySelector(".text-wrapper");
+            let slides = document.querySelectorAll(".slide");
+            let textSlides = document.querySelectorAll(".text-slide");
+
+            slideIndex++;
+            if (slideIndex >= slides.length) slideIndex = 0;
+
+            slideWrapper.style.transform = `translateX(-${slideIndex * 100}%)`;
+            textWrapper.style.transform = `translateX(-${slideIndex * 100}%)`;
+        }
+
+        function changeSlide(n) {
+            let slides = document.querySelectorAll(".slide");
+            let textSlides = document.querySelectorAll(".text-slide");
+            slideIndex += n;
+            if (slideIndex >= slides.length) slideIndex = 0;
+            if (slideIndex < 0) slideIndex = slides.length - 1;
+
+            document.querySelector(".slideshow-wrapper").style.transform = `translateX(-${slideIndex * 100}%)`;
+            document.querySelector(".text-wrapper").style.transform = `translateX(-${slideIndex * 100}%)`;
+        }
+
+        setInterval(updateSlideshow, 3000);
+    </script>
+</body>
+</html>

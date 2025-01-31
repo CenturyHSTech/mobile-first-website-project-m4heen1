@@ -1,36 +1,30 @@
+/* styles.css */
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #F2F2F2;
-    color: #000;
-    text-align: center;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
 }
 
 header {
-    background-color: #004080;
+    background: #0055CC;
     color: white;
     padding: 20px;
+    animation: fadeIn 1s ease-in-out;
 }
 
-#menu-toggle {
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
+h1 {
+    margin: 0;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    background: #003399;
     display: none;
-    flex-direction: column;
-    background-color: #0055CC;
-}
-
-nav ul.open {
-    display: block;
+    animation: slideDown 0.5s ease-in-out;
 }
 
 nav ul li {
@@ -42,13 +36,77 @@ nav ul li a {
     text-decoration: none;
 }
 
-main {
+#menu-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+    animation: bounce 1s infinite;
+}
+
+section {
+    margin: 20px;
     padding: 20px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    animation: slideUp 0.8s ease-in-out;
 }
 
 footer {
-    background-color: #4F4F4F;
+    background: #003366;
     color: white;
     padding: 10px;
     margin-top: 20px;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@media screen and (min-width: 768px) {
+    .about-section {
+        max-width: 700px;
+        font-size: 20px;
+    }
+
+    .team-image {
+        max-width: 600px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-section {
+        max-width: 800px;
+        padding: 30px;
+    }
+
+    .team-image {
+        max-width: 700px;
+    }
 }
